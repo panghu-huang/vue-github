@@ -3,7 +3,7 @@ export const enum UserType {
   Organization = 'Organization',
 }
 
-export const enum EventType {
+export enum EventType {
   ForkEvent = 'ForkEvent',
   WatchEvent = 'WatchEvent',
   PublicEvent = 'PublicEvent',

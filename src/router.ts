@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import { Home } from '@/pages'
+import { Home, Activities } from '@/pages'
 
 Vue.use(Router)
 
@@ -13,5 +13,10 @@ export default new Router({
       name: 'home',
       component: Home,
     },
+    {
+      path: '/activities',
+      name: 'activities',
+      component: Activities,
+    }
   ],
 })

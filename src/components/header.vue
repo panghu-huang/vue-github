@@ -6,7 +6,9 @@
     <nav>
       <ul>
         <li>
-          <router-link to="activities">Activities</router-link>
+          <router-link to="activities" active-class="active">
+            Activities
+          </router-link>
         </li>
       </ul>
     </nav>
@@ -31,6 +33,13 @@
       a {
         color: var(--title-color) !important;
         text-decoration: none;
+      }
+    }
+    nav {
+      ul li a {
+        &.active {
+          color: var(--primary-color);
+        }
       }
     }
   }
