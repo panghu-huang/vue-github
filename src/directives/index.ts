@@ -1,6 +1,6 @@
-import Vue, { VueConstructor } from 'vue'
+import Vue from 'vue'
 import titleDirective from './title'
 
-export function initDirectives(Vue: VueConstructor<Vue>) {
+export function initDirectives() {
   Vue.directive('page-title', titleDirective)
 }

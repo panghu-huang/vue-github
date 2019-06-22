@@ -1,7 +1,7 @@
-import Vue, { VueConstructor } from 'vue'
+import Vue from 'vue'
 import { TimeUtils } from '@/utils'
 
-export function initFilters(Vue: VueConstructor<Vue>) {
+export function initFilters() {
   Vue.filter('fromNow', (time: string) => {
     return TimeUtils.fromNow(time)
   })

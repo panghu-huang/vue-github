@@ -4,12 +4,11 @@ import router from './router'
 import store from './store'
 import { initDirectives } from './directives'
 import { initFilters } from './filters'
-import './global.scss'
 
 Vue.config.productionTip = false
 
-initDirectives(Vue)
-initFilters(Vue)
+initDirectives()
+initFilters()
 
 new Vue({
   router,
