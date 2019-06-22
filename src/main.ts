@@ -2,18 +2,13 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import { titleDirective } from '@/directives'
-import { TimeUtils } from '@/utils'
-import './global.scss'
+import { initDirectives } from './directives'
+import { initFilters } from './filters'
 
 Vue.config.productionTip = false
-Vue.directive('page-title', titleDirective)
-Vue.filter('fromNow', (time: string) => {
-  return TimeUtils.fromNow(time)
-})
-Vue.filter('emptyArray', (array: any) => {
-  return array || []
-})
+
+initDirectives()
+initFilters()
 
 new Vue({
   router,
