@@ -11,6 +11,9 @@ Vue.directive('page-title', titleDirective)
 Vue.filter('fromNow', (time: string) => {
   return TimeUtils.fromNow(time)
 })
+Vue.filter('emptyArray', (array: any) => {
+  return array || []
+})
 
 new Vue({
   router,

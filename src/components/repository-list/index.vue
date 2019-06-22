@@ -8,11 +8,14 @@
       <div class="repository">
         <div class="repository__head">
           <avatar :repo-full-name="row.full_name"/>
-          <h3>{{ row.full_name }}</h3>
+          <repository-link :full-name="row.full_name"/>
         </div>
         <p class="repository__desc">{{ row.description }}</p>
         <div class="repository__foot">
           <language :language="row.language"/>
+          <span class="iconfont icon-star">
+            {{ formatStars(row.stargazers_count) }}
+          </span>
           <span>{{ row.pushed_at | fromNow }}</span>
         </div>
       </div>
@@ -23,16 +26,17 @@
 <script lang="ts">
   import Vue from 'vue'
   import Component from 'vue-class-component'
-  import { Prop } from 'vue-property-decorator'
-  import { ListWrapper, Avatar } from '@/base'
-  import { IRepository } from '@/types'
   import Language from './language.vue'
+  import { Prop } from 'vue-property-decorator'
+  import { ListWrapper, Avatar, RepositoryLink } from '@/base'
+  import { IRepository } from '@/types'
 
   @Component({
     components: {
       ListWrapper,
       Avatar,
       Language,
+      RepositoryLink,
     }
   })
   class RepositoryList extends Vue {
@@ -40,12 +44,18 @@
     @Prop({ required: true, type: Array })
     private readonly repositories: IRepository[]
 
-    @Prop() private readonly loading: boolean
+    @Prop()
+    private readonly loading: boolean
 
-    @Prop() private readonly hasLoadAll: boolean
+    @Prop()
+    private readonly hasLoadAll: boolean
 
     public loadMore() {
       this.$emit('load-more')
+    }
+
+    public formatStars(stars: number) {
+      return stars > 1000 ? `${+(stars / 1000).toFixed(1)}k` : stars
     }
   }
 
@@ -67,6 +77,9 @@
     .repository__foot {
       display: flex;
       font-size: 12px;
+      .icon-star {
+        margin-right: 20px;
+      }
     }
   }
 </style>
