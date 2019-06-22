@@ -1,60 +1,30 @@
 <template>
-  <event-list
-    :events="events"
-    :loading="loading"
-    :has-load-all="hasLoadAll"
-    @load-more="fetchReceivedEvents"
-  />
+  <data-loader
+    route-name="users"
+    path="wokeyi/received_events"
+    v-slot:default="{ data, loading, hasLoadAll, loader }">
+    <event-list
+      :events="data | emptyArray"
+      :loading="loading"
+      :has-load-all="hasLoadAll"
+      @load-more="loader"
+    />
+  </data-loader>
 </template>
 
 <script lang="ts">
   import Vue from 'vue'
   import Component from 'vue-class-component'
-  import { ApiService } from '@/services'
-  import { EventList } from '@/components'
-  import { IEvent } from '@/types'
-  import { DEFAULT_PAGE_SIZE } from '@/config'
-
-  let page = 0
+  import { EventList, DataLoader } from '@/components'
 
   @Component({
     name: 'ReceivedEvents',
     components: {
       EventList,
+      DataLoader,
     },
   })
-  class ReceivedEvents extends Vue {
-    public loading = false
-    public hasLoadAll = false
-    public events: IEvent[] = []
-
-    public mounted() {
-      page = 0
-      this.fetchReceivedEvents()
-    }
-
-    public async fetchReceivedEvents() {
-      try {
-        this.loading = true
-        const service = new ApiService<IEvent[]>('users')
-        const events = await service.get({
-          path: `wokeyi/received_events`,
-          data: {
-            page: ++page,
-            per_page: DEFAULT_PAGE_SIZE,
-          },
-        })
-        if (events.length < DEFAULT_PAGE_SIZE) {
-          this.hasLoadAll = true
-        }
-        this.events = this.events.concat(events)
-      } catch (e) {
-        console.error(e.message)
-      } finally {
-        this.loading = false
-      }
-    }
-  }
+  class ReceivedEvents extends Vue {}
 
   export default ReceivedEvents
 </script>

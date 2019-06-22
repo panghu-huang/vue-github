@@ -6,7 +6,7 @@
     <nav>
       <ul>
         <li>
-          <router-link to="activities" active-class="active">
+          <router-link to="/activities" active-class="active">
             Activities
           </router-link>
         </li>

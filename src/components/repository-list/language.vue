@@ -21,7 +21,8 @@
   })
   class Language extends Vue {
 
-    @Prop() private readonly language: keyof LanguageColors
+    @Prop()
+    public readonly language: keyof LanguageColors
 
     public get languageColor() {
       return languageColors[this.language] || 'yellow'

@@ -1,2 +1,3 @@
-export const Home = () => import('./home.vue')
-export const Activities = () => import('./activities/index.vue')
+export const Home = () => import('./home')
+export const Activities = () => import('./activities')
+export const Users = () => import('./users')
