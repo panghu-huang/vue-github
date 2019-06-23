@@ -40,6 +40,6 @@
 
 <style lang="scss">
   .tab-pane {
-    padding: 20px 0;
+    padding: 0;
   }
 </style>
