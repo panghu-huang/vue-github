@@ -1,7 +1,7 @@
 <template>
   <container
-    type="delete"
-    :description="description"
+    type="unlock"
+    description="make repository public"
     :actor="event.actor"
     :time="event.created_at">
     <wrapper :full-name="event.repo.name"/>
@@ -14,19 +14,13 @@
   import Wrapper from './wrapper'
 
   export default Vue.extend({
-    name: 'DeleteEvent',
+    name: 'PublicEvent',
     components: {
       Container,
       Wrapper,
     },
     props: {
       event: Object,
-    },
-    computed: {
-      description() {
-        const event = this.event as any
-        return `delete ${event.payload.ref_type}: ${event.payload.ref}`
-      }
     },
   })
 </script>
