@@ -13,9 +13,11 @@
   })
   class Avatar extends Vue {
 
-    @Prop() private readonly repoFullName: string
+    @Prop()
+    public readonly repoFullName: string
 
-    @Prop() private readonly user: IUser
+    @Prop()
+    public readonly user: IUser
 
     public get sourceUrl() {
       const { repoFullName, user } = this

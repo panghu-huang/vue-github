@@ -12,9 +12,7 @@
       <received-events/>
     </tab-pane>
     <tab-pane title="Events" tab-key="events">
-      <div>
-        <span>content2</span>
-      </div>
+      <events/>
     </tab-pane>
   </tabs>
 </template>
@@ -23,7 +21,8 @@
   import Vue from 'vue'
   import Component from 'vue-class-component'
   import { TabPane, Tabs, TabTitle } from '@/base'
-  import ReceivedEvents from './received-events.vue'
+  import ReceivedEvents from './received-events'
+  import Events from './events'
 
   @Component({
     name: 'Activities',
@@ -32,6 +31,7 @@
       TabTitle,
       TabPane,
       ReceivedEvents,
+      Events,
     },
   })
   class Activities extends Vue {}

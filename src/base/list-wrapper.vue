@@ -13,7 +13,7 @@
       </app-button>
     </div>
     <div class="wrapper" v-show="loading">
-      <spinner></spinner>
+      <spinner/>
     </div>
   </div>
 </template>

@@ -25,6 +25,18 @@
         v-if="eventType.MemberEvent === row.type"
         :event="row"
       />
+      <public-event
+        v-if="eventType.PublicEvent === row.type"
+        :event="row"
+      />
+      <pull-request-event
+        v-if="eventType.PullRequestEvent === row.type"
+        :event="row"
+      />
+      <push-event
+        v-if="eventType.PushEvent === row.type"
+        :event="row"
+      />
     </template>
   </list-wrapper>
 </template>
@@ -36,11 +48,14 @@
   import { ListWrapper } from '@/base'
   import { IEvent } from '@/types'
   import { EventType } from '@/config'
-  import DeleteEvent from './delete-event.vue'
-  import WatchEvent from './watch-event.vue'
-  import CreateEvent from './create-event.vue'
-  import ForkEvent from './fork-event.vue'
-  import MemberEvent from './member-event.vue'
+  import DeleteEvent from './delete-event'
+  import WatchEvent from './watch-event'
+  import CreateEvent from './create-event'
+  import ForkEvent from './fork-event'
+  import MemberEvent from './member-event'
+  import PublicEvent from './public-event'
+  import PullRequestEvent from './pull-request-event'
+  import PushEvent from './push-event'
 
   @Component({
     name: 'EventList',
@@ -51,6 +66,9 @@
       ListWrapper,
       ForkEvent,
       MemberEvent,
+      PublicEvent,
+      PullRequestEvent,
+      PushEvent,
     },
   })
   class EventList extends Vue {

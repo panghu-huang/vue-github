@@ -2,10 +2,12 @@
   "name": "vue-github",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://wokeyi.github.io/vue-github",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "deploy": "gh-pages -d ./dist"
   },
   "dependencies": {
     "moment": "^2.24.0",
@@ -19,6 +21,7 @@
     "@types/moment": "^2.13.0",
     "@vue/cli-plugin-typescript": "^3.0.5",
     "@vue/cli-service": "^3.0.5",
+    "gh-pages": "^2.0.1",
     "node-sass": "^4.9.0",
     "sass-loader": "^7.1.0",
     "typescript": "^3.4.3",
