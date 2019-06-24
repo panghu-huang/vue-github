@@ -4,6 +4,7 @@ declare global {
   namespace NodeJS {
     interface ProcessEnv {
       VUE_APP_NAME: string
+      VUE_APP_BASENAME: string
     }
   }
   namespace JSX {
